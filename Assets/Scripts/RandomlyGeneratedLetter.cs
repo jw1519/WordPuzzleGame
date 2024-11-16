@@ -5,17 +5,23 @@ using UnityEngine;
 
 public class RandomlyGeneratedLetter : MonoBehaviour
 {
-    public TextMeshProUGUI TextMesh;
+    TextMeshProUGUI textMesh;
+    public string character;
 
     void Start()
     {
+        textMesh = GetComponentInChildren<TextMeshProUGUI>();
         GenerateLetter();
     }
     void GenerateLetter()
     {
         string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         char letter = letters[Random.Range(0, letters.Length)];
-        string character = letter.ToString();
-        TextMesh.SetText(character);
+        character = letter.ToString();
+        textMesh.SetText(character);
+    }
+    public void AddLetter()
+    {
+        Letters.instance.AddToList(character);
     }
 }
