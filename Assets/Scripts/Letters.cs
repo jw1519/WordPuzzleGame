@@ -6,6 +6,7 @@ using UnityEngine;
 public class Letters : MonoBehaviour
 {
     public static Letters instance;
+    int maxLetters = 10;
     private void Awake()
     {
         instance = this;
@@ -17,9 +18,12 @@ public class Letters : MonoBehaviour
 
     public void AddToList(string letter)
     {
-        letters.Add(letter);
-        answerPrefab.GetComponentInChildren<TextMeshProUGUI>().SetText(letter);
-        Instantiate(answerPrefab, answerParent);
+        if (letter.Length < maxLetters)
+        {
+            letters.Add(letter);
+            answerPrefab.GetComponentInChildren<TextMeshProUGUI>().SetText(letter);
+            Instantiate(answerPrefab, answerParent);
+        }
     }
     public void RemoveLetter(string letter)
     {

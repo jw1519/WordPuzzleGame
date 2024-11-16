@@ -6,7 +6,7 @@ using UnityEngine;
 public class RandomlyGeneratedLetter : MonoBehaviour
 {
     TextMeshProUGUI textMesh;
-    string character;
+    public string character;
 
     void Start()
     {
