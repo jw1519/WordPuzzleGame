@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -22,6 +20,6 @@ public class RandomlyGeneratedLetter : MonoBehaviour
     }
     public void AddLetter()
     {
-        Letters.instance.AddToList(character);
+        LetterManager.instance.AddToList(character);
     }
 }

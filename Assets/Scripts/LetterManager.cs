@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Letters : MonoBehaviour
+public class LetterManager : MonoBehaviour
 {
-    public static Letters instance;
+    public static LetterManager instance;
     int maxLetters = 10;
     private void Awake()
     {
@@ -29,11 +29,7 @@ public class Letters : MonoBehaviour
     {
         int childAmount = answerPanel.childCount;
         letters.RemoveAt(childAmount -1);
-
         Destroy(answerPanel.GetChild(childAmount -1).gameObject);
-
-        //Transform child = answerPanel.GetChild(childAmount);
-        //child.GetComponent<>
     }
     public void ClearAll()
     {
