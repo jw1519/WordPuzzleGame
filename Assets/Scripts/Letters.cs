@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -14,7 +13,7 @@ public class Letters : MonoBehaviour
 
     public List<string> letters = new List<string>();
     public GameObject answerPrefab;
-    public Transform answerParent;
+    public Transform answerPanel;
 
     public void AddToList(string letter)
     {
@@ -22,11 +21,26 @@ public class Letters : MonoBehaviour
         {
             letters.Add(letter);
             answerPrefab.GetComponentInChildren<TextMeshProUGUI>().SetText(letter);
-            Instantiate(answerPrefab, answerParent);
+            Instantiate(answerPrefab, answerPanel);
         }
     }
-    public void RemoveLetter(string letter)
+
+    public void RemoveLastLetter()
     {
-        letters.Remove(letter);
+        int childAmount = answerPanel.childCount;
+        letters.RemoveAt(childAmount -1);
+
+        Destroy(answerPanel.GetChild(childAmount -1).gameObject);
+
+        //Transform child = answerPanel.GetChild(childAmount);
+        //child.GetComponent<>
+    }
+    public void ClearAll()
+    {
+        foreach (Transform child in answerPanel)
+        {
+            Destroy(child.gameObject);
+        }
+        letters.Clear();
     }
 }
