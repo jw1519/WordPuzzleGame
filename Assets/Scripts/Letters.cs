@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Letters : MonoBehaviour
@@ -17,8 +18,8 @@ public class Letters : MonoBehaviour
     public void AddToList(string letter)
     {
         letters.Add(letter);
+        answerPrefab.GetComponentInChildren<TextMeshProUGUI>().SetText(letter);
         Instantiate(answerPrefab, answerParent);
-        
     }
     public void RemoveLetter(string letter)
     {
