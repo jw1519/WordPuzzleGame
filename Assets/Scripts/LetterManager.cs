@@ -24,7 +24,6 @@ public class LetterManager : MonoBehaviour
             Instantiate(answerPrefab, answerPanel);
         }
     }
-
     public void RemoveLastLetter()
     {
         int childAmount = answerPanel.childCount;
@@ -40,12 +39,21 @@ public class LetterManager : MonoBehaviour
         letters.Clear();
     }
 
+    string word;
+    int wordsFound;
     public void SubmitList()
     {
         if (letters.Count > 3)
         {
-
+            word = "";
+            foreach (string letter in letters)
+            {
+                word = word + letter;
+            }
+            Debug.Log(word + " was found");
+            wordsFound++;
+            ClearAll();
         }
-        ClearAll();
+        
     }
 }
