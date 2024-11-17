@@ -39,4 +39,13 @@ public class LetterManager : MonoBehaviour
         }
         letters.Clear();
     }
+
+    public void SubmitList()
+    {
+        if (letters.Count > 3)
+        {
+
+        }
+        ClearAll();
+    }
 }
