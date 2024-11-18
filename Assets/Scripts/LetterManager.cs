@@ -43,21 +43,36 @@ public class LetterManager : MonoBehaviour
     int amountOfWordsFound;
     public TextMeshProUGUI wordsFoundText;
     string wordsFound = "Words Found";
+
+    List<string> wordsFoundList = new List<string>();
     public void SubmitList()
     {
-        if (letters.Count > 2) //and word is a word
+        if (letters.Count > 2)
         {
             word = "";
             foreach (string letter in letters)
             {
                 word = word + letter;
             }
-            //shows words found
-            wordsFound = wordsFound + "\n" + word;
-            wordsFoundText.text = wordsFound;
+            if (wordsFoundList.Contains(word))
+            {
+                Debug.Log("word already found");
+            }
+            else
+            {
+                //check if word is word
 
-            amountOfWordsFound++;
-            ClearAll();
+                //shows words found
+                wordsFound = wordsFound + "\n" + word;
+                wordsFoundText.text = wordsFound;
+
+                //add word to list so cant put the same word in twice
+                wordsFoundList.Add(word);
+
+                amountOfWordsFound++;
+                ClearAll();
+            }
+
         }
         
     }
