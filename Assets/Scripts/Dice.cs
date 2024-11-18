@@ -20,8 +20,8 @@ public class Dice : MonoBehaviour
     }
     public void AddLetter()
     {
-        gameObject.GetComponent<Button>().enabled = false;
-        gameObject.GetComponent<Image>().color = Color.red;
+        //gameObject.GetComponent<Button>().enabled = false; 
+        //gameObject.GetComponent<Image>().color = Color.red;
         LetterManager.instance.AddToList(character);
     }
     public void RemoveLetter()

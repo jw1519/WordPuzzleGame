@@ -40,7 +40,9 @@ public class LetterManager : MonoBehaviour
     }
 
     string word;
-    int wordsFound;
+    int amountOfWordsFound;
+    public TextMeshProUGUI wordsFoundText;
+    string wordsFound = "Words Found";
     public void SubmitList()
     {
         if (letters.Count > 2) //and word is a word
@@ -50,8 +52,11 @@ public class LetterManager : MonoBehaviour
             {
                 word = word + letter;
             }
-            Debug.Log(word + " was found");
-            wordsFound++;
+            //shows words found
+            wordsFound = wordsFound + "\n" + word;
+            wordsFoundText.text = wordsFound;
+
+            amountOfWordsFound++;
             ClearAll();
         }
         
