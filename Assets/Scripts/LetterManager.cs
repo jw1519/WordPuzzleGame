@@ -43,7 +43,7 @@ public class LetterManager : MonoBehaviour
     int wordsFound;
     public void SubmitList()
     {
-        if (letters.Count > 2)
+        if (letters.Count > 2) //and word is a word
         {
             word = "";
             foreach (string letter in letters)
