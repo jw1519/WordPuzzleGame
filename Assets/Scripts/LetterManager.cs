@@ -27,9 +27,10 @@ public class LetterManager : MonoBehaviour
         foreach (string letter in selectedLetters)
         {
             lettersToDisplay += letter;
-            answerPanel.GetComponent<TextMeshProUGUI>().text = lettersToDisplay;
         }
+        answerPanel.GetComponent<TextMeshProUGUI>().text = lettersToDisplay;
     }
+    //doent reset the letters/buttons so they dont function
     public void RemoveLastLetter()
     {
         selectedLetters.RemoveAt(selectedLetters.Count - 1);
@@ -38,12 +39,12 @@ public class LetterManager : MonoBehaviour
     public void ClearAll()
     {
         selectedLetters.Clear();
-        Displayletters();
         foreach (Transform child in gameBoard)
         {
-            GetComponent<Dice>().ResetLetter();
+            child.GetComponent<Dice>().ResetLetter();
         }
         lettersToDisplay = string.Empty;
+        Displayletters();
     }
 
     string word;
