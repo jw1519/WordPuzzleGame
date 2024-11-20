@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class TrieNode : MonoBehaviour
 {
-    public Dictionary<char, TrieNode> Children = new Dictionary<char, TrieNode>();
-    public bool IsEndOfWord = false;
+    public Dictionary<char, TrieNode> children = new Dictionary<char, TrieNode>();
+    public bool isEndOfWord = false;
 }

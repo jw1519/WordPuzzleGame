@@ -13,8 +13,15 @@ public class LetterManager : MonoBehaviour
     public List<string> selectedLetters = new List<string>();
     public Transform answerPanel;
     public Transform gameBoard;
+    public TextAsset wordDictionary;
 
     string lettersToDisplay = "";
+
+    Trie wordTrie;
+    public void Start()
+    {
+        wordTrie = new Trie();
+    }
 
     public void AddToList(string selectedLetter)
     {
@@ -49,23 +56,31 @@ public class LetterManager : MonoBehaviour
 
     string word;
     int amountOfWordsFound;
-    public TextAsset wordDictionary;
+
     public TextMeshProUGUI wordsFoundText;
     string wordsFound = "Words Found";
 
-    List<string> wordsFoundList = new List<string>();
-    public void SubmitList()
+    public void GetCurrentWord()
     {
         word = "";
         foreach (string letter in selectedLetters)
         {
             word = word + letter;
         }
+    }
+    List<string> wordsFoundList = new List<string>();
+    public void SubmitList()
+    {
+        GetCurrentWord();
+       
         if (wordsFoundList.Contains(word))
         {
             Debug.Log("word already found");
         }
-        else
+        else if (wordTrie.Search(word))
+        {
+
+        }
         {
             //shows words found
             wordsFound = wordsFound + "\n" + word;
