@@ -5,75 +5,77 @@ using UnityEngine;
 public class LetterManager : MonoBehaviour
 {
     public static LetterManager instance;
-    int maxLetters = 10;
     private void Awake()
     {
         instance = this;
     }
 
-    public List<string> letters = new List<string>();
-    public GameObject answerPrefab;
+    public List<string> selectedLetters = new List<string>();
     public Transform answerPanel;
+    public Transform gameBoard;
 
-    public void AddToList(string letter)
+    string lettersToDisplay = "";
+
+    public void AddToList(string selectedLetter)
     {
-        if (letter.Length < maxLetters)
+        selectedLetters.Add(selectedLetter);
+        Displayletters();
+    }
+    public void Displayletters()
+    {
+        lettersToDisplay = string.Empty;
+        foreach (string letter in selectedLetters)
         {
-            letters.Add(letter);
-            answerPrefab.GetComponentInChildren<TextMeshProUGUI>().SetText(letter);
-            Instantiate(answerPrefab, answerPanel);
+            lettersToDisplay += letter;
+            answerPanel.GetComponent<TextMeshProUGUI>().text = lettersToDisplay;
         }
     }
     public void RemoveLastLetter()
     {
-        int childAmount = answerPanel.childCount;
-        letters.RemoveAt(childAmount -1);
-        Destroy(answerPanel.GetChild(childAmount -1).gameObject);
+        selectedLetters.RemoveAt(selectedLetters.Count - 1);
+        Displayletters();
     }
     public void ClearAll()
     {
-        foreach (Transform child in answerPanel)
+        selectedLetters.Clear();
+        Displayletters();
+        foreach (Transform child in gameBoard)
         {
-            Destroy(child.gameObject);
+            GetComponent<Dice>().ResetLetter();
         }
-        letters.Clear();
+        lettersToDisplay = string.Empty;
     }
 
     string word;
     int amountOfWordsFound;
+    public TextAsset wordDictionary;
     public TextMeshProUGUI wordsFoundText;
     string wordsFound = "Words Found";
 
     List<string> wordsFoundList = new List<string>();
     public void SubmitList()
     {
-        if (letters.Count > 2)
+        word = "";
+        foreach (string letter in selectedLetters)
         {
-            word = "";
-            foreach (string letter in letters)
-            {
-                word = word + letter;
-            }
-            if (wordsFoundList.Contains(word))
-            {
-                Debug.Log("word already found");
-            }
-            else
-            {
-                //check if word is word
-
-                //shows words found
-                wordsFound = wordsFound + "\n" + word;
-                wordsFoundText.text = wordsFound;
-
-                //add word to list so cant put the same word in twice
-                wordsFoundList.Add(word);
-
-                amountOfWordsFound++;
-                ClearAll();
-            }
-
+            word = word + letter;
         }
-        
+        if (wordsFoundList.Contains(word))
+        {
+            Debug.Log("word already found");
+        }
+        else
+        {
+            //shows words found
+            wordsFound = wordsFound + "\n" + word;
+            wordsFoundText.text = wordsFound;
+
+            //add word to list so cant put the same word in twice
+            wordsFoundList.Add(word);
+
+            amountOfWordsFound++;
+            ClearAll();
+        }
+        //check if word is word
     }
 }

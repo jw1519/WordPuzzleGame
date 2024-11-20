@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Dice : MonoBehaviour
 {
     TextMeshProUGUI textMesh;
-    public string character;
+    public string selectedLetter;
     void Start()
     {
         textMesh = GetComponentInChildren<TextMeshProUGUI>();
@@ -15,16 +15,16 @@ public class Dice : MonoBehaviour
     {
         string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         char letter = letters[Random.Range(0, letters.Length)];
-        character = letter.ToString();
-        textMesh.SetText(character);
+        selectedLetter = letter.ToString();
+        textMesh.SetText(selectedLetter);
     }
-    public void AddLetter()
+    public void OnLetterClicked()
     {
-        //gameObject.GetComponent<Button>().enabled = false; 
-        //gameObject.GetComponent<Image>().color = Color.red;
-        LetterManager.instance.AddToList(character);
+        gameObject.GetComponent<Button>().enabled = false;
+        gameObject.GetComponent<Image>().color = Color.red;
+        LetterManager.instance.AddToList(selectedLetter);
     }
-    public void RemoveLetter()
+    public void ResetLetter()
     {
         gameObject.GetComponent<Button>().enabled = true;
         gameObject.GetComponent<Image>().color = Color.white;
