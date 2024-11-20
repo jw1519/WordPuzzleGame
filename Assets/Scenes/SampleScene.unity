@@ -2070,7 +2070,8 @@ MonoBehaviour:
   selectedLetters: []
   answerPanel: {fileID: 1280403072}
   gameBoard: {fileID: 2124307768}
-  wordDictionary: {fileID: 0}
+  wordsTextAsset: {fileID: 4900000, guid: 1f4770f760a5bda448585233478fc572, type: 3}
+  wordsList: []
   wordsFoundText: {fileID: 420883182}
 --- !u!1 &2124307766
 GameObject:
