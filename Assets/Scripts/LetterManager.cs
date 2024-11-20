@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LetterManager : MonoBehaviour
@@ -13,7 +15,9 @@ public class LetterManager : MonoBehaviour
     public List<string> selectedLetters = new List<string>();
     public Transform answerPanel;
     public Transform gameBoard;
-    public TextAsset wordDictionary;
+    public TextAsset wordsTextAsset;
+
+    public string[] wordsList;
 
     string lettersToDisplay = "";
 
@@ -21,6 +25,12 @@ public class LetterManager : MonoBehaviour
     public void Start()
     {
         wordTrie = new Trie();
+        wordsList = wordsTextAsset.text.Split("\n");
+        
+        foreach (string word in wordsList)
+        {
+            wordTrie.Insert(word);
+        }
     }
 
     public void AddToList(string selectedLetter)
@@ -55,43 +65,37 @@ public class LetterManager : MonoBehaviour
     }
 
     string word;
-    int amountOfWordsFound;
 
     public TextMeshProUGUI wordsFoundText;
     string wordsFound = "Words Found";
 
-    public void GetCurrentWord()
+    public string GetCurrentWord()
     {
-        word = "";
-        foreach (string letter in selectedLetters)
-        {
-            word = word + letter;
-        }
+        return string.Join("", selectedLetters);
     }
     List<string> wordsFoundList = new List<string>();
     public void SubmitList()
     {
-        GetCurrentWord();
+        string currentWord = GetCurrentWord();
+
        
         if (wordsFoundList.Contains(word))
         {
             Debug.Log("word already found");
         }
-        else if (wordTrie.Search(word))
-        {
-
-        }
+        if (wordTrie.Search(currentWord))
         {
             //shows words found
             wordsFound = wordsFound + "\n" + word;
             wordsFoundText.text = wordsFound;
 
             //add word to list so cant put the same word in twice
-            wordsFoundList.Add(word);
-
-            amountOfWordsFound++;
+            wordsFoundList.Add(currentWord);
             ClearAll();
         }
-        //check if word is word
+        else
+        {
+            Debug.Log("word not found");
+        }
     }
 }
