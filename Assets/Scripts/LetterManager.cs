@@ -17,19 +17,19 @@ public class LetterManager : MonoBehaviour
     public Transform gameBoard;
     public TextAsset wordsTextAsset;
 
-    public string[] wordsList;
-
     string lettersToDisplay = "";
 
     Trie wordTrie;
     public void Start()
     {
         wordTrie = new Trie();
-        wordsList = wordsTextAsset.text.Split("\n");
+        string[] lines = wordsTextAsset.text.Split("\n");
+        List<string> wordsList = new List<string>(lines);
         
         foreach (string word in wordsList)
         {
             wordTrie.Insert(word);
+            Debug.Log(wordTrie.Search(word));
         }
     }
 
@@ -74,23 +74,25 @@ public class LetterManager : MonoBehaviour
         return string.Join("", selectedLetters);
     }
     List<string> wordsFoundList = new List<string>();
-    public void SubmitList()
+    public void SubmitWord()
     {
         string currentWord = GetCurrentWord();
 
-       
-        if (wordsFoundList.Contains(word))
+        if (wordTrie.Search(currentWord.ToUpper()))
         {
-            Debug.Log("word already found");
-        }
-        if (wordTrie.Search(currentWord))
-        {
-            //shows words found
-            wordsFound = wordsFound + "\n" + word;
-            wordsFoundText.text = wordsFound;
+            if (wordsFoundList.Contains(word))
+            {
+                Debug.Log("word already found");
+            }
+            else
+            {
+                //shows words found
+                wordsFound = wordsFound + "\n" + word;
+                wordsFoundText.text = wordsFound;
 
-            //add word to list so cant put the same word in twice
-            wordsFoundList.Add(currentWord);
+                //add word to list so cant put the same word in twice
+                wordsFoundList.Add(currentWord);
+            }
             ClearAll();
         }
         else
