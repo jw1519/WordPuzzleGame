@@ -78,7 +78,7 @@ public class LetterManager : MonoBehaviour
     {
         string currentWord = GetCurrentWord();
 
-        if (wordTrie.Search(currentWord.ToUpper()))
+        if (wordTrie.Search(currentWord))
         {
             if (wordsFoundList.Contains(word))
             {
@@ -87,13 +87,13 @@ public class LetterManager : MonoBehaviour
             else
             {
                 //shows words found
-                wordsFound = wordsFound + "\n" + word;
+                wordsFound = wordsFound + "\n" + currentWord;
                 wordsFoundText.text = wordsFound;
 
                 //add word to list so cant put the same word in twice
                 wordsFoundList.Add(currentWord);
+                ClearAll();
             }
-            ClearAll();
         }
         else
         {
