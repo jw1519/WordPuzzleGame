@@ -26,10 +26,10 @@ public class LetterManager : MonoBehaviour
         string[] lines = wordsTextAsset.text.Split("\n");
         List<string> wordsList = new List<string>(lines);
         
+        
         foreach (string word in wordsList)
         {
-            wordTrie.Insert(word);
-            Debug.Log(wordTrie.Search(word));
+            wordTrie.Insert(word.Trim());
         }
     }
 

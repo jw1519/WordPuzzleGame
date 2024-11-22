@@ -3,7 +3,11 @@ guid: ad143a2661af2064390b69f208fc6123
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - answerPanel: {instanceID: 0}
+  - gameBoard: {instanceID: 0}
+  - wordsTextAsset: {fileID: 4900000, guid: 1f4770f760a5bda448585233478fc572, type: 3}
+  - wordsFoundText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

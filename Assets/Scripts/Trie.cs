@@ -1,4 +1,5 @@
-
+using UnityEditor;
+using UnityEngine;
 public class Trie
 {
     private readonly TrieNode root;
@@ -9,13 +10,16 @@ public class Trie
     public void Insert(string word)
     {
         var currentNode = root;
+        Debug.Log(word);
         foreach (var letter in word)
         {
             if (!currentNode.children.ContainsKey(letter))
             {
                 currentNode.children[letter] = new TrieNode();
+                Debug.Log(letter);
             }
             currentNode = currentNode.children[letter];
+            Debug.Log(". end of word ");
         }
         currentNode.isEndOfWord = true;
     }
