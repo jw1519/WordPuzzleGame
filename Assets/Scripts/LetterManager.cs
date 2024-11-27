@@ -16,6 +16,7 @@ public class LetterManager : MonoBehaviour
     public Transform answerPanel;
     public Transform gameBoard;
     public TextAsset wordsTextAsset;
+    public List<string> wordList = new List<string>();
 
     string lettersToDisplay = "";
 
@@ -23,7 +24,7 @@ public class LetterManager : MonoBehaviour
     public void Start()
     {
         wordTrie = new Trie();
-        string[] lines = wordsTextAsset.text.Split("\n");
+        string[] lines = wordsTextAsset.text.Split();
         List<string> wordsList = new List<string>(lines);
         
         
