@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LetterManager : MonoBehaviour
@@ -66,7 +64,7 @@ public class LetterManager : MonoBehaviour
     }
 
     public TextMeshProUGUI wordsFoundText;
-    string wordsFound = "Words Found";
+    string wordsFound = "Words Found: \n";
 
     public string GetCurrentWord()
     {
@@ -86,7 +84,7 @@ public class LetterManager : MonoBehaviour
             else
             {
                 //shows words found
-                wordsFound = wordsFound + "\n" + currentWord;
+                wordsFound = wordsFound + currentWord + ", ";
                 wordsFoundText.text = wordsFound;
 
                 //add word to list so cant put the same word in twice
