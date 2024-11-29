@@ -3,7 +3,9 @@ guid: 650eae07bfbc50444b87f77e64f9b37b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - dicePrefab: {fileID: 1082293033140868856, guid: 2676394182473294fa93323ec4c73889, type: 3}
+  - gameBoard: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
