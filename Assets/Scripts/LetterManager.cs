@@ -16,7 +16,7 @@ public class LetterManager : MonoBehaviour
     public Transform answerPanel;
     public Transform gameBoard;
     public TextAsset wordsTextAsset;
-    public List<string> wordList = new List<string>();
+    List<string> wordList = new List<string>();
 
     string lettersToDisplay = "";
 
@@ -24,11 +24,11 @@ public class LetterManager : MonoBehaviour
     public void Start()
     {
         wordTrie = new Trie();
-        string[] lines = wordsTextAsset.text.Split();
-        List<string> wordsList = new List<string>(lines);
+        string[] lines = wordsTextAsset.text.Split("\n");
+        wordList = new List<string>(lines);
         
         
-        foreach (string word in wordsList)
+        foreach (string word in wordList)
         {
             wordTrie.Insert(word.Trim());
         }
@@ -65,8 +65,6 @@ public class LetterManager : MonoBehaviour
         Displayletters();
     }
 
-    string word;
-
     public TextMeshProUGUI wordsFoundText;
     string wordsFound = "Words Found";
 
@@ -77,11 +75,11 @@ public class LetterManager : MonoBehaviour
     List<string> wordsFoundList = new List<string>();
     public void SubmitWord()
     {
-        string currentWord = GetCurrentWord();
+        string currentWord = GetCurrentWord().ToLower();
 
         if (wordTrie.Search(currentWord))
         {
-            if (wordsFoundList.Contains(word))
+            if (wordsFoundList.Contains(currentWord))
             {
                 Debug.Log("word already found");
             }
