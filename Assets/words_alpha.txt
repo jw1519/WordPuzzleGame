@@ -24,7 +24,6 @@ aaru
 aas
 aasvogel
 aasvogels
-ab
 aba
 ababdeh
 ababua
@@ -1203,7 +1202,6 @@ abvolts
 abwab
 abwatt
 abwatts
-ac
 acacatechin
 acacatechol
 acacetin
@@ -3388,7 +3386,6 @@ acutograve
 acutonodose
 acutorsion
 acxoyatl
-ad
 ada
 adactyl
 adactylia
@@ -4744,7 +4741,6 @@ adze
 adzer
 adzes
 adzooks
-ae
 aeacides
 aeacus
 aeaean
@@ -5258,7 +5254,6 @@ aettekees
 aevia
 aeviternal
 aevum
-af
 aface
 afaced
 afacing
@@ -5810,7 +5805,6 @@ afunction
 afunctional
 afwillite
 afzelia
-ag
 aga
 agabanee
 agacant
@@ -6614,7 +6608,6 @@ agura
 aguroth
 agush
 agust
-ah
 aha
 ahaaina
 ahab
@@ -6679,8 +6672,6 @@ ahurewa
 ahush
 ahuula
 ahwal
-ai
-ay
 ayacahuite
 ayah
 ayahausca
@@ -7214,7 +7205,6 @@ akund
 akvavit
 akvavits
 akwapim
-al
 ala
 alabama
 alabaman
@@ -9710,7 +9700,6 @@ always
 alwise
 alwite
 alzheimer
-am
 ama
 amaas
 amabel
@@ -11444,7 +11433,6 @@ amuze
 amuzzle
 amvis
 amzel
-an
 ana
 anabaena
 anabaenas
@@ -13675,7 +13663,6 @@ annunciative
 annunciator
 annunciatory
 annunciators
-annus
 anoa
 anoas
 anobiidae
@@ -16562,7 +16549,6 @@ anxiously
 anxiousness
 anzac
 anzanian
-ao
 aob
 aogiri
 aoife
@@ -16612,7 +16598,6 @@ aoudad
 aoudads
 aouellimiden
 aoul
-ap
 apa
 apabhramsa
 apace
@@ -18287,7 +18272,6 @@ aquose
 aquosity
 aquotization
 aquotize
-ar
 ara
 arab
 araba
