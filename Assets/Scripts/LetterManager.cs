@@ -14,7 +14,7 @@ public class LetterManager : MonoBehaviour
     public Transform answerPanel;
     public Transform gameBoard;
     public TextAsset wordsTextAsset;
-    List<string> wordList = new List<string>();
+    public List<string> wordList = new List<string>();
 
     string lettersToDisplay = "";
 
@@ -28,7 +28,7 @@ public class LetterManager : MonoBehaviour
         
         foreach (string word in wordList)
         {
-            wordTrie.Insert(word.Trim());
+            wordTrie.Insert(word.Trim().ToLower());
         }
     }
 
