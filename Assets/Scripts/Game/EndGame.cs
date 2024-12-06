@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
-
     public void GameFinished()
     {
         SceneManager.LoadScene("EndgameScene");

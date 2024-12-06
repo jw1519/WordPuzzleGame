@@ -308,9 +308,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuButtonManager, Assembly-CSharp
-        m_MethodName: OpenSettings
+      - m_Target: {fileID: 1572579004}
+        m_TargetAssemblyTypeName: GameOverButtonManager, Assembly-CSharp
+        m_MethodName: Retry
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 679415596}
   - component: {fileID: 679415595}
   m_Layer: 5
-  m_Name: QuitButton
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -575,9 +575,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuButtonManager, Assembly-CSharp
-        m_MethodName: OpenSettings
+      - m_Target: {fileID: 1572579004}
+        m_TargetAssemblyTypeName: GameOverButtonManager, Assembly-CSharp
+        m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -771,6 +771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1572579003}
   - component: {fileID: 1572579002}
+  - component: {fileID: 1572579004}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -806,6 +807,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1572579004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572579001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18305bc700d6ab0428e285face418084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1902688477
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,9 +876,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Quit
-
-'
+  m_text: Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
