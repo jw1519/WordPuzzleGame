@@ -70,7 +70,7 @@ public class LetterManager : MonoBehaviour
     {
         return string.Join("", selectedLetters);
     }
-    List<string> wordsFoundList = new List<string>();
+    [SerializeField] public List<string> wordsFoundList = new List<string>();
     public void SubmitWord()
     {
         string currentWord = GetCurrentWord().ToLower();
