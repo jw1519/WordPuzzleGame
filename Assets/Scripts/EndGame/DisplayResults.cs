@@ -6,7 +6,7 @@ using UnityEngine;
 public class DisplayResults : MonoBehaviour
 {
     public TextMeshProUGUI amountOfWordsText;
-    static int amountOfWordsFound;
+    int amountOfWordsFound;
 
     void Start()
     {
