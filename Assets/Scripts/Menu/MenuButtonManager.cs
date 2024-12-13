@@ -15,6 +15,6 @@ public class MenuButtonManager : MonoBehaviour
     }
     public void Quit()
     {
-
+        Application.Quit();
     }
 }
