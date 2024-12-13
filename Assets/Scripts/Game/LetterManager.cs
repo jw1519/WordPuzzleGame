@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class LetterManager : MonoBehaviour
@@ -24,10 +25,19 @@ public class LetterManager : MonoBehaviour
         wordTrie = new Trie();
         string[] lines = wordsTextAsset.text.Split("\n");
         wordList = new List<string>(lines);
+
         
         
         foreach (string word in wordList)
         {
+            if (word.Length > 2)
+            {
+                if (!wordList.Contains(word))
+                {
+                    AssetDatabase.AddObjectToAsset(wordsTextAsset, word);
+                }
+            }
+            
             wordTrie.Insert(word.Trim().ToLower());
         }
     }

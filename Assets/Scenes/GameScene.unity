@@ -2071,7 +2071,7 @@ MonoBehaviour:
   selectedLetters: []
   answerPanel: {fileID: 1280403072}
   gameBoard: {fileID: 2124307768}
-  wordsTextAsset: {fileID: 4900000, guid: 53e8389bebb6e8e4aaf83df712795bf1, type: 3}
+  wordsTextAsset: {fileID: 4900000, guid: 9f7ba2fe1359c864aa440b74975293ed, type: 3}
   wordList: []
   wordsFoundText: {fileID: 420883182}
   wordsFoundList: []
