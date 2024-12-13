@@ -47,11 +47,11 @@ public class LetterManager : MonoBehaviour
         answerPanel.GetComponent<TextMeshProUGUI>().text = lettersToDisplay;
     }
     //doent reset the letters/buttons so they dont function
-    public void RemoveLastLetter()
-    {
-        selectedLetters.RemoveAt(selectedLetters.Count - 1);
-        Displayletters();
-    }
+    //public void RemoveLastLetter()
+    //{
+    //    selectedLetters.RemoveAt(selectedLetters.Count - 1);
+    //    Displayletters();
+    //}
     public void ClearAll()
     {
         selectedLetters.Clear();
@@ -76,7 +76,7 @@ public class LetterManager : MonoBehaviour
         string currentWord = GetCurrentWord().ToLower();
         Debug.Log(currentWord.Length);
 
-        if (wordTrie.Search(currentWord))
+        if (wordTrie.Search(currentWord) && currentWord.Length > 2)
         {
             if (wordsFoundList.Contains(currentWord))
             {
