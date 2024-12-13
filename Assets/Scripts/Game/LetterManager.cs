@@ -28,7 +28,10 @@ public class LetterManager : MonoBehaviour
         
         foreach (string word in wordList)
         {
-            wordTrie.Insert(word.Trim().ToLower());
+            if (word.Length > 2)
+            {
+                wordTrie.Insert(word.Trim().ToLower());
+            }
         }
     }
 
