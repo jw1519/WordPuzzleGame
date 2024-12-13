@@ -76,7 +76,7 @@ public class LetterManager : MonoBehaviour
         string currentWord = GetCurrentWord().ToLower();
         Debug.Log(currentWord.Length);
 
-        if (wordTrie.Search(currentWord))
+        if (wordTrie.Search(currentWord) && currentWord.Length > 2)
         {
             if (wordsFoundList.Contains(currentWord))
             {
