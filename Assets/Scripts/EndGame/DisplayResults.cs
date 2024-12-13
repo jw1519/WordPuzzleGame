@@ -13,6 +13,4 @@ public class DisplayResults : MonoBehaviour
         amountOfWordsFound = LetterManager.instance.wordsFoundList.Count;
         amountOfWordsText.text = $"You found {amountOfWordsFound} words";
     }
-
-
 }
