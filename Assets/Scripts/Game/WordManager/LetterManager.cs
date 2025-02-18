@@ -38,9 +38,14 @@ public class LetterManager : MonoBehaviour
     public void AddToList(string selectedLetter)
     {
         selectedLetters.Add(selectedLetter);
-        Displayletters();
+        DisplayLetters();
     }
-    public void Displayletters()
+    public void RemoveFromList(string letter)
+    {
+        selectedLetters.Remove(letter);
+        DisplayLetters();
+    }
+    public void DisplayLetters()
     {
         lettersToDisplay = string.Empty;
         foreach (string letter in selectedLetters)
@@ -63,7 +68,7 @@ public class LetterManager : MonoBehaviour
             child.GetComponent<Dice>().ResetLetter();
         }
         lettersToDisplay = string.Empty;
-        Displayletters();
+        DisplayLetters();
     }
 
     public TextMeshProUGUI wordsFoundText;

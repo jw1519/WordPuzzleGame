@@ -28,5 +28,6 @@ public class Dice : MonoBehaviour
     {
         gameObject.GetComponent<Button>().enabled = true;
         gameObject.GetComponent<Image>().color = Color.white;
+        LetterManager.instance.RemoveFromList(selectedLetter);
     }
 }
